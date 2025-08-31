@@ -26,19 +26,28 @@
             color: var(--text);
             overflow-x: hidden;
         }
-        
-       /* * {
+        .cursor {
+            opacity: 1;
+            background: transparent; /* keep only the border visible */
+        }
+
+        .cursor-follower {
+            opacity: 0.3;
+        }
+
+        * {
             cursor: none;
         }
         
         a, button {
             cursor: none;
-        } */
+        } 
 
         .cursor,
         .cursor-follower {
         opacity: 1;
         }
+        
 
         /* Custom Cursor */
         .cursor {
@@ -765,6 +774,8 @@
             if (cursor && follower) {
                 cursor.style.left = e.clientX + 'px';
                 cursor.style.top = e.clientY + 'px';
+                cursor.style.opacity = "1";
+                follower.style.opacity = "0.3";
                 
                 setTimeout(() => {
                     follower.style.left = e.clientX - 10 + 'px';
@@ -1025,5 +1036,6 @@
                 el.style.cursor = 'auto';
             });
         }
+
 
 
