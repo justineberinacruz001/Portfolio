@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="icon" type="image/png" href="https://www.bigbadtoystore.com/product/variationdetails/301865">
+    <title>Portfolio - Creative Developer</title>
     <style>
         * {
             margin: 0;
@@ -26,6 +25,13 @@
             background: var(--dark);
             color: var(--text);
             overflow-x: hidden;
+        }
+        
+        * {
+            cursor: none;
+        }
+        
+        a, button {
             cursor: none;
         }
 
@@ -593,8 +599,8 @@
                 display: none;
             }
 
-            body {
-                cursor: auto;
+            body, * {
+                cursor: auto !important;
             }
         }
     </style>
@@ -744,14 +750,38 @@
         const cursor = document.querySelector('.cursor');
         const follower = document.querySelector('.cursor-follower');
 
+        // Make sure cursor is visible from the start
+        if (cursor && follower) {
+            cursor.style.opacity = '1';
+            follower.style.opacity = '1';
+        }
+
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                follower.style.left = e.clientX - 10 + 'px';
-                follower.style.top = e.clientY - 10 + 'px';
-            }, 100);
+            if (cursor && follower) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                setTimeout(() => {
+                    follower.style.left = e.clientX - 10 + 'px';
+                    follower.style.top = e.clientY - 10 + 'px';
+                }, 100);
+            }
+        });
+
+        // Show cursor when mouse enters the window
+        document.addEventListener('mouseenter', () => {
+            if (cursor && follower) {
+                cursor.style.opacity = '1';
+                follower.style.opacity = '1';
+            }
+        });
+
+        // Hide cursor when mouse leaves the window
+        document.addEventListener('mouseleave', () => {
+            if (cursor && follower) {
+                cursor.style.opacity = '0';
+                follower.style.opacity = '0';
+            }
         });
 
         // Cursor hover effects
@@ -982,7 +1012,11 @@
 
         // Clean up cursor on mobile
         if ('ontouchstart' in window) {
-            cursor.style.display = 'none';
-            follower.style.display = 'none';
+            if (cursor) cursor.style.display = 'none';
+            if (follower) follower.style.display = 'none';
             document.body.style.cursor = 'auto';
+            // Restore default cursor for all elements
+            document.querySelectorAll('*').forEach(el => {
+                el.style.cursor = 'auto';
+            });
         }
