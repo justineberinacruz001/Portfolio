@@ -714,8 +714,11 @@ footer {
     }
     
     .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 15px;
+    }
+
+    .contact-item {
+        padding: clamp(15px, 3vw, 20px);
     }
 
     .cursor,
@@ -770,6 +773,14 @@ footer {
     .code-line {
         margin: 5px 0;
     }
+
+    .contact-grid {
+        gap: 10px;
+    }
+    
+    .contact-item {
+        padding: clamp(10px, 2vw, 15px);
+    }
 }
 
 /* Landscape orientation on mobile */
@@ -819,3 +830,4 @@ footer {
         transition: none !important;
     }
 }
+
