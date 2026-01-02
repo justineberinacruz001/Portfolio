@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const burger = document.getElementById("burger");
     const navLinks = document.getElementById("navLinks");
-    const navItems = document.querySelectorAll("#navlinks p")
+    const navItems = document.querySelectorAll("#navLinks p")
 
     burger.addEventListener("click", () => {
         navLinks.classList.toggle("active");
@@ -55,11 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let charIndex = 0;
     let typing = true;
 
-    if(isMobile) {
-        laptop.classList.add("on");
-        title.textContent = "I'm Justine";
-        subtitle.textContent = "Web Developer";
-        laptopOn = true;
+    if(isMobile()) {
+        typeOnceMobile("Web Developer");
+        return;
     }
 
     function typeOnceMobile(text){
@@ -105,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     laptop.addEventListener("click", () => {
-        if (laptopOn || isMobile) return;
+        if (laptopOn || isMobile()) return;
         laptopOn = true;
 
         laptop.classList.add("on");
