@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justine-Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <p>DevPortfolio</p>
+        </div>
+
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="part2" id="navLinks">
+            <p>Home</p>
+            <p>Projects</p>
+            <p>Skills</p>
+            <p>About Me</p>
+            <p>Contact Me</p>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="laptop" id="laptop">
+            <div class="screen">
+                <img src="img/profile1.jpeg" alt="Justine" class="screen-img">
+            </div>
+            <div class="base"></div>
+        </div>
+
+        <!--Laptop turn-on-text-->
+        <div class="intro" id="intro">
+            <h1 id="title">Welcome to my portfolio</h1>
+            <p id="subtitle"></p>
+        </div>
+    </div>
+
+    <section class="projects" id="projects">
+
+        <h2 class="section-title">Selected works</h2>
+
+        <div class="projects-grid">
+            <!--Latest Project loc-->
+            <article class="project-card featured">
+                <span class="status in-progress">In Progress</span>
+                <h3>Latest Project</h3>
+                <p>Project I'm currently building and refining.</p>
+                <span class="cta">View details</span>
+            </article>
+            <!--Normal Projs-->
+            <article class="project-card">
+                <span class="status done">Done</span>
+                <h3>Project Name</h3>
+                <p>project solves.</p>
+                <span class="cta">View project</span>
+            </article>
+
+            <article class="project-card">
+                <span class="status done">Done</span>
+                <h3>Project Name</h3>
+                <p>project solves.</p>
+                <span class="cta">View project</span>
+            </article>
+
+        </div>
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+    </script>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
