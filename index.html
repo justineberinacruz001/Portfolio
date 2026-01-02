@@ -52,7 +52,7 @@
 
         <div class="projects-grid">
 <!--Latest Project loc-->
-            <article class="project-card featured">
+            <article class="project-card featured" data-status="in-progress">
                 <div class="project-preview">
                     <span class="preview-label">Preview</span>
                 </div>
@@ -63,14 +63,14 @@
                 <span class="cta">View details</span>
             </article>
 <!--Normal Projs-->
-            <article class="project-card">
+            <article class="project-card" data-status="done">
                 <span class="status done">Done</span>
                 <h3>Project Name</h3>
                 <p>project solves.</p>
                 <span class="cta">View project</span>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-status="done">
                 <span class="status done">Done</span>
                 <h3>Project Name</h3>
                 <p>project solves.</p>
@@ -80,6 +80,17 @@
         </div>
     </section>
 
+    <div class="project-overlay" id="projectOverlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">🚧</div>
+            <h3>Under Construction</h3>
+            <p>
+                I'm working hard to bring you something incredible.
+                This project page is currently under development and will be ready soon.
+            </p>
+            <button id ="closeOverlay">Close</button>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
     </script>

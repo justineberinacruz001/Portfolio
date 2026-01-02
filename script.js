@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.getElementById("navLinks");
     const navItems = document.querySelectorAll("#navLinks p")
 
+    const projectCards = document.querySelectorAll(".project-card");
+    const projectOverlay = document.getElementById("projectOverlay");
+    const closeOverlay = document.getElementById("closeOverlay");
+    
     burger.addEventListener("click", () => {
         navLinks.classList.toggle("active");
         document.body.classList.toggle("nav-open");
@@ -80,6 +84,25 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             typeOnce("Web Developer");
         }, 2200);
+    });
+
+    projectCards.forEach(card => {
+        card.addEventListener("click", () => {
+            projectOverlay.classList.add("active");
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    closeOverlay.addEventListener("click", () => {
+        projectOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+    });
+
+    projectOverlay.addEventListener("click", (e) => {
+        if (e.target == projectOverlay) {
+            projectOverlay.classList.remove("active");
+            document.body.style.overflow = "";
+        }
     });
 
 });
