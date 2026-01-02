@@ -42,25 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function isMobile() {
     return window.innerWidth <= 768;
 }
-    
-    /* Typing Settings */
-    const roles = [
-        "Web Developer",
-        "Front-End Developer",
-        "Back-End Learner"
-    ];
 
-    let laptopOn = false;
-    let roleIndex = 0;
-    let charIndex = 0;
-    let typing = true;
-
-    if(isMobile()) {
-        typeOnceMobile("Web Developer");
-        return;
-    }
-
-    function typeOnceMobile(text){
+    function typeOnce(text){
         let i = 0;
         subtitle.textContent = "";
 
@@ -68,38 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
             if(i < text.length) {
                 subtitle.textContent += text.charAt(i);
                 i++;
-                setTimeout(type, 120);
+                setTimeout(type, 100);
             }
         }
 
         type();
     }
 
-    function typeCycle() {
-        const current = roles[roleIndex];
+    let laptopOn = false;
 
-        if (typing) {
-
-            if (charIndex < current.length) {
-                subtitle.textContent += current.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeCycle, 90);
-            } else {
-                typing = false;
-                setTimeout(typeCycle, 1400);
-            }
-        } else {
-
-            if(charIndex > 0){
-                subtitle.textContent = current.substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(typeCycle, 50);
-            } else {
-                typing = true;
-                roleIndex = (roleIndex + 1) % roles.length;
-                setTimeout(typeCycle, 400);
-            }
-        }
+    if(isMobile()) {
+        laptop.classList.add("on");
+        title.textContent = "I'm Justine";
+        laptopOn = true;
+        typeOnce("Web Developer");
     }
 
     laptop.addEventListener("click", () => {
@@ -108,23 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         laptop.classList.add("on");
 
-        setTimeout(() =>{
+        setTimeout(() => {
             title.textContent = "I'm Justine";
         }, 1500);
 
-        setTimeout(() =>{
-            subtitle.textContent = "";
-
-            if (isMobile) {
-                typeOnceMobile("Web Developer");
-                return;
-            }
-
-            roleIndex = 0;
-            charIndex = 0;
-            typing = true;
-            typeCycle();
-
+        setTimeout(() => {
+            typeOnce("Web Developer");
         }, 2200);
     });
 
