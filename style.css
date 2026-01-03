@@ -208,13 +208,7 @@ nav {
 .projects {
     padding: 120px 32px;
     max-width: 1200px;
-    margin: 0;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    margin: 0 auto;
 }
 
 .project-card {
@@ -245,7 +239,6 @@ nav {
 
 .project-card.featured {
     grid-column: span 2;
-    padding: 32px;
 }
 
 .project-card.featured .project-preview {
@@ -278,13 +271,14 @@ nav {
 .project-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.65);
-    display: flex;
+    display: flex;  
     align-items: center;
+    justify-content: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    z-index: 2000;
+    background: rgba(0,0,0,0.65);
+    z-index: 999;
 }
 
 .project-overlay.active {
@@ -292,14 +286,28 @@ nav {
     pointer-events: auto;
 }
 
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.project-status {
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    opacity: 0.75;
+}
+
 .overlay-content {
     background: #161616;
     border-radius: 16px;
-    padding: 32px;
-    max-width: 420;
-    width: 90%;
+    padding: 3.5rem 3rem;
+    max-width: 560px;
+    width: 92%;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
 .overlay-icon {
@@ -313,9 +321,10 @@ nav {
 }
 
 .overlay-content p {
-    font-size: 15px;
+    font-size: 1.05rem;
+    line-height: 1.7;
     color: #cfcfcf;
-    margin-bottom: 24px;
+    margin: 1.2rem 0 2rem;
 }
 
 .overlay-content button {
@@ -396,6 +405,26 @@ nav {
         display: flex;
     }
 
+    .overlay {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.65);
+        z-index: 999;
+    }
+
+    .overlay-content {
+        max-width: 95%;
+        padding: 2.5rem 2rem;
+    }
+
+    .overlay-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
     .part2 {
         position: fixed;
         top: 64px;
@@ -416,11 +445,19 @@ nav {
     }
 
     .projects {
-        padding: 80px 16px;
+        padding: 72px 16px;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-card.cta {
+        margin-top: 12px;
     }
 
     .project-card.featured {
@@ -436,11 +473,37 @@ nav {
         height: 180px;
     }
 
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 28px;
+    }
+
     #title {
         font-size: 26px;
     }
 
     #subtitle {
         font-size: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .projects-grid {
+        gap: 20px;
+    }
+}
+
+@media (hover: hover) {
+    .project-card {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+        transform:translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    .project-card.featured:hover {
+        transform: translateY(-6px) scale(1.03);
     }
 }
