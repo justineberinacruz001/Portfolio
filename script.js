@@ -88,6 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projectCards.forEach(card => {
         card.addEventListener("click", () => {
+            if (card.dataset.status !== "in-progress") return;
+
             projectOverlay.classList.add("active");
             document.body.style.overflow = "hidden";
         });
